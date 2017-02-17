@@ -1,0 +1,206 @@
+<lumiere>
+	<label>D65</label>
+	<k>0.0517</k> <!-- http://people.rennes.inria.fr/Eric.Marchand/ESIR/ESIR2/BINP/couleur.pdf -->
+	<amplitude wavelength = "380">0.034100
+</amplitude>
+	<amplitude wavelength = "384">0.360140
+</amplitude>
+	<amplitude wavelength = "388">0.686180
+</amplitude>
+	<amplitude wavelength = "392">1.012220
+</amplitude>
+	<amplitude wavelength = "396">1.338260
+</amplitude>
+	<amplitude wavelength = "400">1.664300
+</amplitude>
+	<amplitude wavelength = "404">1.990340
+</amplitude>
+	<amplitude wavelength = "408">2.316380
+</amplitude>
+	<amplitude wavelength = "412">2.642420
+</amplitude>
+	<amplitude wavelength = "416">2.968460
+</amplitude>
+	<amplitude wavelength = "420">3.294500
+</amplitude>
+	<amplitude wavelength = "424">4.988650
+</amplitude>
+	<amplitude wavelength = "428">6.682800
+</amplitude>
+	<amplitude wavelength = "432">8.376950
+</amplitude>
+	<amplitude wavelength = "436">10.071100
+</amplitude>
+	<amplitude wavelength = "440">11.765200
+</amplitude>
+	<amplitude wavelength = "444">13.459400
+</amplitude>
+	<amplitude wavelength = "448">15.153500
+</amplitude>
+	<amplitude wavelength = "452">16.847700
+</amplitude>
+	<amplitude wavelength = "456">18.541800
+</amplitude>
+	<amplitude wavelength = "460">20.236000
+</amplitude>
+	<amplitude wavelength = "464">21.917700
+</amplitude>
+	<amplitude wavelength = "468">23.599500
+</amplitude>
+	<amplitude wavelength = "472">25.281200
+</amplitude>
+	<amplitude wavelength = "476">26.963000
+</amplitude>
+	<amplitude wavelength = "480">28.644700
+</amplitude>
+	<amplitude wavelength = "484">30.326500
+</amplitude>
+	<amplitude wavelength = "488">32.008200
+</amplitude>
+	<amplitude wavelength = "492">33.690000
+</amplitude>
+	<amplitude wavelength = "496">35.371700
+</amplitude>
+	<amplitude wavelength = "500">37.053500
+</amplitude>
+	<amplitude wavelength = "504">37.343000
+</amplitude>
+	<amplitude wavelength = "508">37.632600
+</amplitude>
+	<amplitude wavelength = "512">37.922100
+</amplitude>
+	<amplitude wavelength = "516">38.211600
+</amplitude>
+	<amplitude wavelength = "520">38.501100
+</amplitude>
+	<amplitude wavelength = "524">38.790700
+</amplitude>
+	<amplitude wavelength = "528">39.080200
+</amplitude>
+	<amplitude wavelength = "532">39.369700
+</amplitude>
+	<amplitude wavelength = "536">39.659300
+</amplitude>
+	<amplitude wavelength = "540">39.948800
+</amplitude>
+	<amplitude wavelength = "544">40.445100
+</amplitude>
+	<amplitude wavelength = "548">40.941400
+</amplitude>
+	<amplitude wavelength = "552">41.437700
+</amplitude>
+	<amplitude wavelength = "556">41.934000
+</amplitude>
+	<amplitude wavelength = "560">42.430200
+</amplitude>
+	<amplitude wavelength = "564">42.926500
+</amplitude>
+	<amplitude wavelength = "568">43.422800
+</amplitude>
+	<amplitude wavelength = "572">43.919100
+</amplitude>
+	<amplitude wavelength = "576">44.415400
+</amplitude>
+	<amplitude wavelength = "580">44.911700
+</amplitude>
+	<amplitude wavelength = "584">45.084400
+</amplitude>
+	<amplitude wavelength = "588">45.257000
+</amplitude>
+	<amplitude wavelength = "592">45.429700
+</amplitude>
+	<amplitude wavelength = "596">45.602300
+</amplitude>
+	<amplitude wavelength = "600">45.775000
+</amplitude>
+	<amplitude wavelength = "604">45.947700
+</amplitude>
+	<amplitude wavelength = "608">46.120300
+</amplitude>
+	<amplitude wavelength = "612">46.293000
+</amplitude>
+	<amplitude wavelength = "616">46.465600
+</amplitude>
+	<amplitude wavelength = "620">46.638300
+</amplitude>
+	<amplitude wavelength = "624">47.183400
+</amplitude>
+	<amplitude wavelength = "628">47.728500
+</amplitude>
+	<amplitude wavelength = "632">48.273500
+</amplitude>
+	<amplitude wavelength = "636">48.818600
+</amplitude>
+	<amplitude wavelength = "640">49.363700
+</amplitude>
+	<amplitude wavelength = "644">49.908800
+</amplitude>
+	<amplitude wavelength = "648">50.453900
+</amplitude>
+	<amplitude wavelength = "652">50.998900
+</amplitude>
+	<amplitude wavelength = "656">51.544000
+</amplitude>
+	<amplitude wavelength = "660">52.089100
+</amplitude>
+	<amplitude wavelength = "664">51.877700
+</amplitude>
+	<amplitude wavelength = "668">51.666400
+</amplitude>
+	<amplitude wavelength = "672">51.455000
+</amplitude>
+	<amplitude wavelength = "676">51.243700
+</amplitude>
+	<amplitude wavelength = "680">51.032300
+</amplitude>
+	<amplitude wavelength = "684">50.820900
+</amplitude>
+	<amplitude wavelength = "688">50.609600
+</amplitude>
+	<amplitude wavelength = "692">50.398200
+</amplitude>
+	<amplitude wavelength = "696">50.186900
+</amplitude>
+	<amplitude wavelength = "700">49.975500
+</amplitude>
+	<amplitude wavelength = "704">50.442800
+</amplitude>
+	<amplitude wavelength = "708">50.910000
+</amplitude>
+	<amplitude wavelength = "712">51.377300
+</amplitude>
+	<amplitude wavelength = "716">51.844600
+</amplitude>
+	<amplitude wavelength = "720">52.311800
+</amplitude>
+	<amplitude wavelength = "724">52.779100
+</amplitude>
+	<amplitude wavelength = "728">53.246400
+</amplitude>
+	<amplitude wavelength = "732">53.713700
+</amplitude>
+	<amplitude wavelength = "736">54.180900
+</amplitude>
+	<amplitude wavelength = "740">54.648200
+</amplitude>
+	<amplitude wavelength = "744">57.458900
+</amplitude>
+	<amplitude wavelength = "748">60.269500
+</amplitude>
+	<amplitude wavelength = "752">63.080200
+</amplitude>
+	<amplitude wavelength = "756">65.890900
+</amplitude>
+	<amplitude wavelength = "760">68.701500
+</amplitude>
+	<amplitude wavelength = "764">71.512200
+</amplitude>
+	<amplitude wavelength = "768">74.322900
+</amplitude>
+	<amplitude wavelength = "772">77.133600
+</amplitude>
+	<amplitude wavelength = "776">79.944200
+</amplitude>
+	<amplitude wavelength = "780">82.754900
+</amplitude>
+</lumiere>
