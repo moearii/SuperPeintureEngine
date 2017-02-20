@@ -91,8 +91,6 @@ if (err != GL_NO_ERROR) { \
 } \
 }
 
-
-
 class RenderingWidget : public QGLWidget
 {
     Q_OBJECT
@@ -107,16 +105,13 @@ public:
     static glm::vec3 test;
 
 protected:
-
     virtual void initializeGL();
     virtual void resizeGL(int w, int h);
     virtual void paintGL();
 
-
 private:
-
-    Pigment * getPigmentfromLabel(const QString& name);
-    Light * getLightfromLabel(const QString& name);
+    Pigment* getPigmentfromLabel(const QString& name);
+    Light* getLightfromLabel(const QString& name);
 
     Pipeline * pipe_cpu;
     Pipeline_GPU * pipe_gpu;

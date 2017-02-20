@@ -19,8 +19,6 @@ public:
 
 private:
 
-
-
 };
 
 #endif // PIPELINE_CPU_H

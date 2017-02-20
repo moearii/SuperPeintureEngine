@@ -305,74 +305,54 @@ std::vector<float> ConfigXML::parseNodeSpectre(QDomElement &nodeSpectre)
     return lightSpectrum;
 }
 
-bool ConfigXML::exportDataToFilePigment(const QString& filename)
-{
-    QDomDocument document;
+//bool ConfigXML::exportDataToFilePigment(const QString& filename)
+//{
+//    QDomDocument document;
 
-    // Create the root element
-    QDomElement root = document.createElement("pigment");
+//    // Create the root element
+//    QDomElement root = document.createElement("pigment");
 
-    // Adding the root element to the document
-    document.appendChild(root);
+//    // Adding the root element to the document
+//    document.appendChild(root);
 
-    // Adding more elements
-    QDomElement label = document.createElement("label");
-    label.appendChild(document.createTextNode(name));
-    root.appendChild(label);
+//    // Adding more elements
+//    QDomElement label = document.createElement("label");
+//    label.appendChild(document.createTextNode(name));
+//    root.appendChild(label);
 
-    for(int i=0; i<wavelengthList.size(); ++i)
-    {
-        QDomElement amplitude = document.createElement("amplitude");
-        amplitude.setAttribute("wavelength",wavelengthList.at(i));
+//    for(int i=0; i<wavelengthList.size(); ++i)
+//    {
+//        QDomElement amplitude = document.createElement("amplitude");
+//        amplitude.setAttribute("wavelength",wavelengthList.at(i));
 
-        QDomElement absorption = document.createElement("absorption");
-        std::string valueK = to_string(absorptionSpectrum.at(i));
-        absorption.appendChild(document.createTextNode(QString::fromStdString(valueK)));
+//        QDomElement absorption = document.createElement("absorption");
+//        std::string valueK = to_string(absorptionSpectrum.at(i));
+//        absorption.appendChild(document.createTextNode(QString::fromStdString(valueK)));
 
-        QDomElement scattering = document.createElement("diffusion");
-        std::string valueS = to_string(scatteringSpectrum.at(i));
-        scattering.appendChild(document.createTextNode(QString::fromStdString(valueS)));
+//        QDomElement scattering = document.createElement("diffusion");
+//        std::string valueS = to_string(scatteringSpectrum.at(i));
+//        scattering.appendChild(document.createTextNode(QString::fromStdString(valueS)));
 
-        root.appendChild(amplitude);
-        amplitude.appendChild(absorption);
-        amplitude.appendChild(scattering);
-    }
-    // Writing to a file
-    QFile file(filename);
-    if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
-    {
-        qDebug("Error while writing file");
-        return false;
-    }
-    else
-    {
-        QTextStream stream(&file);
-        stream << document.toString();
-        file.close();
-        qDebug("Writing is done");
-    }
-    return true;
-}
-
-
-Pigment ConfigXML::getPigment(const QString& name)
-{
-    int i=0;
-    while(name.toStdString().compare(pigmentList.at(i).getLabel()) != 0)
-        i++;
-
-    return pigmentList.at(i);
-}
-
-
-Light ConfigXML::getLight(const QString& name)
-{
-    int i=0;
-    while(name.toStdString().compare(lightList.at(i).getLabel()) != 0)
-        i++;
-
-    return lightList.at(i);
-}
+//        root.appendChild(amplitude);
+//        amplitude.appendChild(absorption);
+//        amplitude.appendChild(scattering);
+//    }
+//    // Writing to a file
+//    QFile file(filename);
+//    if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+//    {
+//        qDebug("Error while writing file");
+//        return false;
+//    }
+//    else
+//    {
+//        QTextStream stream(&file);
+//        stream << document.toString();
+//        file.close();
+//        qDebug("Writing is done");
+//    }
+//    return true;
+//}
 
 std::vector<Pigment> ConfigXML::getPigmentList(){
     return pigmentList;

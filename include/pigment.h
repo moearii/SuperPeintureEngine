@@ -27,10 +27,6 @@ public:
     void setScattering(Spectre scattering);
     void setConcentration(float c);
 
-    void printDataPigment();
-
-    //static Pigment getPigmentfromList(vector<Pigment> list, const QString& name);
-
 private:
     //Attributes
     std::string labelPigment;

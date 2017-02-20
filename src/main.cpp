@@ -5,7 +5,7 @@
 #include <GL/gl.h>
 #include <QApplication>
 
-#include "renderingwidget.h"
+#include "mixer.h"
 
 int main(int argc, char **argv)
 {
@@ -17,8 +17,8 @@ int main(int argc, char **argv)
     glFormat.setSampleBuffers(true);
 
     RenderingWidget widget(glFormat);
-    widget.show();
-
+    Mixer mixer(&widget);
+    mixer.show();
 
     return application.exec();
 }

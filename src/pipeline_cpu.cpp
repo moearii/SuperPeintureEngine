@@ -26,3 +26,4 @@ void Pipeline_CPU::run_full_samples(Pigment * pig1, Pigment * pig2, Light * lum,
 
     couleur = Utils_kubelka::clipping(rgb);
 }
+

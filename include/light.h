@@ -18,10 +18,6 @@ public:
     float getK();
     std::string getLabel();
 
-    //static Light getLightfromList(vector<Light> list, const QString& name);
-
-    void printDataLight();
-
 private:
     std::string labelLight;
     Spectre lightSpectrum;

@@ -40,9 +40,6 @@ public:
     // TODO: export data to xmlfiles
     bool exportDataToFilePigment(const QString& filename);
 
-    Pigment getPigment(const QString& name);
-    Light getLight(const QString& name);
-
     std::vector<Pigment> getPigmentList();
     std::vector<Light> getLightList();
 

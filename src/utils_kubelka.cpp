@@ -10,17 +10,12 @@ Spectre Utils_kubelka::compute_melange(Pigment * pig1, Pigment * pig2){
     for(int i = 0; i < SAMPLES; i++){
         float km = pig1->getAbsorption().getAmplitude(i) * pig1->getConcentration() + pig2->getAbsorption().getAmplitude(i) * pig2->getConcentration();
         float sm = pig1->getScattering().getAmplitude(i) * pig1->getConcentration() + pig2->getScattering().getAmplitude(i) * pig2->getConcentration();
-        //cout << "i = " << i << " km = " << km << " sm = " << sm << endl;
         wavelengthsmelange.push_back(km / sm);
     }
-
-    //cout << "concentration pig 1 = " << pig1->getConcentration() << " concentration pig2 = " << pig2->getConcentration() << endl;
 
     melange.setAmplitudes(wavelengthsmelange);
     melange.setWavelengths(pig1->getAbsorption().getWavelengthList());
 
-    //for(int i = 0; i < SAMPLES; i++)
-        //cout << "melange " << i << " = " << melange.getAmplitude(i) << endl;
     return melange;
 }
 
@@ -39,9 +34,6 @@ Spectre Utils_kubelka::compute_reflectance_melange(Spectre melange){
     reflectance.setAmplitudes(wavelengthsreflectance);
     reflectance.setWavelengths(melange.getWavelengthList());
 
-    //for(int i = 0; i < SAMPLES; i++)
-        //cout << "reflectance " << i << " = " << reflectance.getAmplitude(i) << endl;
-
     return reflectance;
 }
 
@@ -57,9 +49,6 @@ Spectre Utils_kubelka::compute_lumiere_reflechie(Spectre reflectance, Light * in
 
     reflechie.setAmplitudes(wavelengthsreflechie);
     reflechie.setWavelengths(reflectance.getWavelengthList());
-
-    //for(int i = 0; i < SAMPLES; i++)
-        //cout << "reflechie " << i << " = " << reflechie.getAmplitude(i) << endl;
 
     return reflechie;
 }
