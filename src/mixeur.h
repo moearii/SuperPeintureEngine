@@ -7,8 +7,6 @@
 #include <sstream>
 #include <QMouseEvent>
 
-#include "configxml.h"
-
 namespace Ui {
 class Mixeur;
 }
@@ -25,16 +23,15 @@ private slots:
     void on_pigment_1_clicked();
     void on_pigment_2_clicked();
     void on_cpu_gpu_clicked();
-    void on_export_clicked();
 
     void on_slider_valueChanged();
 
-protected:
-    void mousePressEvent(QMouseEvent *e);
-
 private:
+
+    void update_rgb(QColor & rgb);
+    void update_xyz(std::vector<float> xyz);
+
     Ui::Mixeur *ui;
-    RenderingWidget * render;
     std::vector<QString> pigments_labels;
 
     int numeroLabel_pigment_1;

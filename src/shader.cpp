@@ -14,7 +14,6 @@ void Shader::init(const GLchar* vertexPath, const GLchar* fragmentPath)
     {
       file_contents += str;
       file_contents.push_back('\n');
-
     }
 
     const char *vertexShaderSource = file_contents.c_str();

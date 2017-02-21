@@ -18,8 +18,8 @@ public:
 
     virtual ~Pipeline(){}
 
-    virtual void run_8_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur) = 0;
-    virtual void run_full_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur) = 0;
+    virtual void run_8_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur, glm::vec3 & xyz) = 0;
+    virtual void run_full_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur, glm::vec3 & xyz) = 0;
 
 
 private:

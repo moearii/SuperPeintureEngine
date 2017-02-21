@@ -3,6 +3,17 @@
 #include <QCoreApplication>
 #include <QKeyEvent>
 
+RenderingWidget::RenderingWidget(QWidget *parent, const QGLWidget *shareWidget, Qt::WindowFlags f) :
+    QGLWidget(parent, shareWidget, f)
+{
+    QGLFormat glFormat;
+    glFormat.setVersion(4, 3);
+    glFormat.setProfile(QGLFormat::CoreProfile);
+    glFormat.setSampleBuffers(true);
+
+    this->setFormat(glFormat);
+}
+
 RenderingWidget::RenderingWidget(const QGLFormat & format, QWidget * parent)
     : QGLWidget(format, parent){
 
@@ -49,6 +60,9 @@ void RenderingWidget::initializeGL() {
     label_pigment2 = "ac";
     lightLabel = "D65";
     resultat = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 xyz = glm::vec3(0.0f, 0.0f, 0.0f);
+
+
 }
 
 void RenderingWidget::resizeGL(int w, int h) {
@@ -63,10 +77,13 @@ void RenderingWidget::paintGL() {
                 getPigmentfromLabel(label_pigment2),
                 slider_concentration,
                 getLightfromLabel(lightLabel),
-                resultat);
+                resultat,
+                xyz);
 
     glClearColor(resultat.x, resultat.y, resultat.z, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+
 }
 
 Pigment * RenderingWidget::getPigmentfromLabel(const QString& name){
@@ -92,6 +109,14 @@ QColor RenderingWidget::getResultat(){
 
 glm::vec3 RenderingWidget::getResultatFloatPrecision(){
     return resultat;
+}
+
+std::vector<float> RenderingWidget::getXYZ(){
+    vector<float> x_y_z;
+    x_y_z.push_back(xyz.x);
+    x_y_z.push_back(xyz.y);
+    x_y_z.push_back(xyz.z);
+    return x_y_z;
 }
 
 vector<QString> RenderingWidget::getPigmentsLabels(){

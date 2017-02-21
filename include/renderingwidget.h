@@ -97,12 +97,14 @@ class RenderingWidget : public QGLWidget
 {
     Q_OBJECT
 public:
+    RenderingWidget(QWidget *parent = 0, const QGLWidget *shareWidget = 0, Qt::WindowFlags f = 0);
     RenderingWidget(const QGLFormat & format, QWidget * parent = 0);
     ~RenderingWidget();
 
     QColor getResultat();
     glm::vec3 getResultatFloatPrecision();
     vector<QString> getPigmentsLabels();
+    std::vector<float> getXYZ();
 
     void setLabel_pigment1(QString label);
     void setLabel_pigment2(QString label);
@@ -134,6 +136,7 @@ private:
     QString lightLabel;
 
     glm::vec3 resultat;
+    glm::vec3 xyz;
 
 };
 
