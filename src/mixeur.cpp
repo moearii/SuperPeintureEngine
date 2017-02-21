@@ -55,7 +55,6 @@ void Mixeur::on_pigment_1_clicked(){
     rgbText << "R : " <<couleur.red() << "  G : " << couleur.green() << "  B : " << couleur.blue();
     std::string rgb_text(rgbText.str());
     ui->RGB->setText(QString(rgb_text.c_str()));
-
 }
 
 void Mixeur::on_pigment_2_clicked(){
@@ -122,6 +121,7 @@ void Mixeur::on_slider_valueChanged(){
 void Mixeur::on_export_clicked()
 {
     cout << "Export en cours..." << endl;
+
 }
 
 void Mixeur::mousePressEvent(QMouseEvent *e)
