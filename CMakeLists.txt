@@ -31,12 +31,8 @@ find_package(OpenGL REQUIRED)
 find_package(Qt4 REQUIRED)
 
 set(Qt4_LIBRARIES Qt4::QtGui Qt4::QtCore Qt4::QtOpenGL Qt4::QtXml)
-set(mixer_SOURCES ${CMAKE_SOURCE_DIR}/src/mixer.cpp)
-set(mixer_HEADERS ${CMAKE_SOURCE_DIR}/include/mixer.h)
-set(mixer_FORMS ${CMAKE_SOURCE_DIR}/src/mixer.ui)
 
-QT4_WRAP_CPP(mixer_HEADERS_MOCS ${mixer_HEADERS})
-QT4_WRAP_UI(mixer_FORMS_HEADERS ${mixer_FORMS})
+QT4_WRAP_UI(UIS_HDRS ${CMAKE_SOURCE_DIR}/src/mixeur.ui)
 
 FILE(GLOB folder_project_include include/*.* include/*/*.*)
 
@@ -47,8 +43,7 @@ include_directories(${OPENGL_INCLUDE_DIR}
 add_executable(${PROJECT_NAME}
 	       ${SOURCE_LIST}  
 	       ${folder_project_include}
-               ${mixer_HEADERS_MOC}
-	       ${mixer_FORMS_HEADERS})
+               ${UIS_HDRS})
 
 target_link_libraries(${PROJECT_NAME} 
 	              ${Qt4_LIBRARIES} 
