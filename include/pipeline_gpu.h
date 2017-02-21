@@ -13,8 +13,8 @@ public:
     Pipeline_GPU();
     virtual ~Pipeline_GPU();
 
-    virtual void run_8_samples(Pigment * pig1, Pigment * pig2, Light * lum, glm::vec3 & couleur);
-    virtual void run_full_samples(Pigment * pig1, Pigment * pig2, Light * lum, glm::vec3 & couleur);
+    virtual void run_8_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur);
+    virtual void run_full_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur);
 
 private:
 

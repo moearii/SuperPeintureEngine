@@ -3,12 +3,6 @@
 #include <QCoreApplication>
 #include <QKeyEvent>
 
-QColor RenderingWidget::couleurPigment1 = QColor(0,0,0);
-QColor RenderingWidget::couleurPigment2 = QColor(0,0,0);
-QColor RenderingWidget::couleurMelange = QColor(0,0,0);
-
-glm::vec3 RenderingWidget::test(0.0f, 0.0f, 0.0f);
-
 RenderingWidget::RenderingWidget(const QGLFormat & format, QWidget * parent)
     : QGLWidget(format, parent){
 
@@ -26,16 +20,35 @@ void RenderingWidget::initializeGL() {
     pipe_cpu = new Pipeline_CPU();
     pipe_gpu = new Pipeline_GPU();
 
+
     ConfigXML parseur;
 
     /** Indiquer le chemin vers les fichiers pigments */
-    parseur.loadFilesFromDirectory((char*)"../pigments/");
+    parseur.loadFilesFromDirectory("../pigments/");
+
+    /*
+    std::cout << "Nombre de pigments charges: " << parseur.pigmentList.size()  << "\n" << std::endl;
+    for(std::vector<Pigment>::iterator it = parseur.pigmentList.begin(); it != parseur.pigmentList.end(); ++it)
+        (*it).printDataPigment();
+    */
 
     /** Indiquer le chemin vers les fichiers lumieres */
-    parseur.loadFilesFromDirectory((char*)"../lumieres/");
+    parseur.loadFilesFromDirectory("../lumieres/");
+
+    /*
+    std::cout << "Nombre de lumieres chargees: " << parseur.lightList.size() << std::endl;
+    for(std::vector<Light>::iterator it = parseur.lightList.begin(); it != parseur.lightList.end(); ++it)
+        (*it).printDataLight();
+    */
 
     pigments = parseur.getPigmentList();
     lumieres = parseur.getLightList();
+
+    slider_concentration = 1.f;
+    label_pigment1 = "ac";
+    label_pigment2 = "ac";
+    lightLabel = "D65";
+    resultat = glm::vec3(0.0f, 0.0f, 0.0f);
 }
 
 void RenderingWidget::resizeGL(int w, int h) {
@@ -45,27 +58,18 @@ void RenderingWidget::resizeGL(int w, int h) {
 
 void RenderingWidget::paintGL() {
 
-//    cout << "ClearColor = " << test.x << " " << test.y << " " << test.z << endl;
-    glClearColor(test.x, test.y, test.z, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    QString pigmentLabel1("yo");
-    QString pigmentLabel2("ac");
-    QString lightLabel("D65");
-    float concentrationPig1 = 1.f;
-    float concentrationPig2 = 1.f - concentrationPig1;
-
-    getPigmentfromLabel(pigmentLabel1)->setConcentration(concentrationPig1);
-    getPigmentfromLabel(pigmentLabel2)->setConcentration(concentrationPig2);
-
     pipe_cpu->run_full_samples(
-                getPigmentfromLabel(pigmentLabel1),
-                getPigmentfromLabel(pigmentLabel2),
+                getPigmentfromLabel(label_pigment1),
+                getPigmentfromLabel(label_pigment2),
+                slider_concentration,
                 getLightfromLabel(lightLabel),
-                test);
+                resultat);
+
+    glClearColor(resultat.x, resultat.y, resultat.z, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
-Pigment* RenderingWidget::getPigmentfromLabel(const QString& name){
+Pigment * RenderingWidget::getPigmentfromLabel(const QString& name){
     int i=0;
     while(name.toStdString().compare(pigments.at(i).getLabel()) != 0)
         i++;
@@ -73,10 +77,39 @@ Pigment* RenderingWidget::getPigmentfromLabel(const QString& name){
     return &(pigments.at(i));
 }
 
-Light* RenderingWidget::getLightfromLabel(const QString& name){
+Light * RenderingWidget::getLightfromLabel(const QString& name){
     int i=0;
     while(name.toStdString().compare(lumieres.at(i).getLabel()) != 0)
         i++;
 
     return &(lumieres.at(i));
+}
+
+QColor RenderingWidget::getResultat(){
+    return QColor(resultat.x * 255, resultat.y * 255, resultat.z * 255);
+    //return QColor();
+}
+
+glm::vec3 RenderingWidget::getResultatFloatPrecision(){
+    return resultat;
+}
+
+vector<QString> RenderingWidget::getPigmentsLabels(){
+    vector<QString> list;
+    for(int i = 0; i < pigments.size(); i++){
+        list.push_back(QString(pigments[i].getLabel().c_str()));
+    }
+    return list;
+}
+
+void RenderingWidget::setLabel_pigment1(QString label){
+    label_pigment1 = label;
+}
+
+void RenderingWidget::setLabel_pigment2(QString label){
+    label_pigment2 = label;
+}
+
+void RenderingWidget::setSlider_concentration(float concentration){
+    slider_concentration = concentration;
 }

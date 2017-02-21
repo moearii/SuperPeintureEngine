@@ -22,10 +22,6 @@ Spectre Pigment::getScattering()
     return scatteringSpectrum;
 }
 
-float Pigment::getConcentration(){
-    return concentration;
-}
-
 void Pigment::setLabel(std::string label)
 {
     labelPigment = label;
@@ -41,7 +37,9 @@ void Pigment::setScattering(Spectre scattering)
     scatteringSpectrum = Spectre(scattering);
 }
 
-void Pigment::setConcentration(float c)
+void Pigment::printDataPigment()
 {
-    concentration = c;
+    std::cout << "\nNom pigment: " << labelPigment << std::endl;
+    absorptionSpectrum.printDataSpectrum();
+    scatteringSpectrum.printDataSpectrum();
 }

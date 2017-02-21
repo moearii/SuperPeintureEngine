@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>523</width>
-    <height>307</height>
+    <width>681</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QWidget" name="pigmentWidget" native="true">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>20</y>
+     <x>190</x>
+     <y>340</y>
      <width>251</width>
      <height>191</height>
     </rect>
@@ -26,9 +26,9 @@
   <widget class="QSlider" name="concentrationSlider">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
-     <width>160</width>
+     <x>190</x>
+     <y>290</y>
+     <width>251</width>
      <height>16</height>
     </rect>
    </property>
@@ -36,17 +36,30 @@
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="concentrationLabel">
+  <widget class="QPushButton" name="pigmentButton1">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>211</width>
-     <height>41</height>
+     <x>50</x>
+     <y>70</y>
+     <width>201</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pigmentButton2">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>70</y>
+     <width>201</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
    </property>
   </widget>
  </widget>
@@ -54,17 +67,113 @@
  <connections>
   <connection>
    <sender>concentrationSlider</sender>
-   <signal>actionTriggered(int)</signal>
-   <receiver>concentrationLabel</receiver>
-   <slot>setNum(int)</slot>
+   <signal>valueChanged(int)</signal>
+   <receiver>pigmentWidget</receiver>
+   <slot>repaint()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>60</x>
-     <y>58</y>
+     <x>313</x>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
-     <x>60</x>
+     <x>224</x>
+     <y>370</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pigmentButton1</sender>
+   <signal>clicked()</signal>
+   <receiver>pigmentButton1</receiver>
+   <slot>repaint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>197</x>
      <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>126</x>
+     <y>94</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pigmentButton2</sender>
+   <signal>clicked()</signal>
+   <receiver>pigmentButton2</receiver>
+   <slot>repaint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>552</x>
+     <y>126</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>488</x>
+     <y>116</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pigmentButton1</sender>
+   <signal>clicked()</signal>
+   <receiver>pigmentWidget</receiver>
+   <slot>repaint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>270</x>
+     <y>474</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pigmentButton2</sender>
+   <signal>clicked()</signal>
+   <receiver>pigmentWidget</receiver>
+   <slot>repaint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>439</x>
+     <y>146</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>397</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pigmentButton1</sender>
+   <signal>clicked()</signal>
+   <receiver>concentrationSlider</receiver>
+   <slot>repaint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>235</x>
+     <y>127</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pigmentButton2</sender>
+   <signal>clicked()</signal>
+   <receiver>concentrationSlider</receiver>
+   <slot>repaint()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>421</x>
+     <y>102</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>397</x>
+     <y>292</y>
     </hint>
    </hints>
   </connection>
@@ -75,12 +184,12 @@
    <slot>repaint()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>143</x>
-     <y>57</y>
+     <x>342</x>
+     <y>296</y>
     </hint>
     <hint type="destinationlabel">
-     <x>294</x>
-     <y>50</y>
+     <x>342</x>
+     <y>418</y>
     </hint>
    </hints>
   </connection>

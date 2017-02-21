@@ -91,6 +91,8 @@ if (err != GL_NO_ERROR) { \
 } \
 }
 
+
+
 class RenderingWidget : public QGLWidget
 {
     Q_OBJECT
@@ -98,26 +100,41 @@ public:
     RenderingWidget(const QGLFormat & format, QWidget * parent = 0);
     ~RenderingWidget();
 
-    static QColor couleurPigment1;
-    static QColor couleurPigment2;
-    static QColor couleurMelange;
+    QColor getResultat();
+    glm::vec3 getResultatFloatPrecision();
+    vector<QString> getPigmentsLabels();
 
-    static glm::vec3 test;
+    void setLabel_pigment1(QString label);
+    void setLabel_pigment2(QString label);
+    void setSlider_concentration(float concentration);
+
+
+    virtual void initializeGL();
 
 protected:
-    virtual void initializeGL();
+
+
     virtual void resizeGL(int w, int h);
     virtual void paintGL();
 
 private:
-    Pigment* getPigmentfromLabel(const QString& name);
-    Light* getLightfromLabel(const QString& name);
+
+    Pigment * getPigmentfromLabel(const QString& name);
+    Light * getLightfromLabel(const QString& name);
 
     Pipeline * pipe_cpu;
     Pipeline_GPU * pipe_gpu;
 
     vector<Pigment> pigments;
     vector<Light> lumieres;
+
+    float slider_concentration;
+    QString label_pigment1;
+    QString label_pigment2;
+    QString lightLabel;
+
+    glm::vec3 resultat;
+
 };
 
 #endif // RENDERINGWIDGET_H

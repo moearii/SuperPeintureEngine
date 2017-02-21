@@ -18,3 +18,19 @@ float Light::getK(){
 std::string Light::getLabel(){
     return labelLight;
 }
+
+/*Light Light::getLightfromList(vector<Light> list, const QString& name){
+    int i=0;
+    while(name.toStdString().compare(list.at(i).getLabel()) != 0)
+        i++;
+
+    return list.at(i);
+}
+*/
+
+void Light::printDataLight()
+{
+    std::cout << "\nNom lumiere: " << labelLight << std::endl;
+    lightSpectrum.printDataSpectrum();
+}
+

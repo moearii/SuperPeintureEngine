@@ -2,13 +2,17 @@
 #define MIXER_H
 
 #include <QDialog>
+#include <QMainWindow>
 #include <QWidget>
 #include <QGLWidget>
+#include <QGridLayout>
+
 #include "renderingwidget.h"
 
-class RenderingWidget;
 
 namespace Ui {
+class RenderingWidget;
+
 class Mixer;
 }
 
@@ -24,12 +28,14 @@ public:
         mixerRenderer = widget;
     }
 
+private slots:
     void initMixer();
-    void printColor();
+    void updateColor();
 
 private:
     RenderingWidget *mixerRenderer;
     Ui::Mixer *ui;
+    QGridLayout *viewerLayout;
 };
 
 #endif // MIXER_H

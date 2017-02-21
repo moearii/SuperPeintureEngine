@@ -9,6 +9,8 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -g -ggdb -O0 -Wall -Wextra")
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
+# interface
+set(CMAKE_AUTOUIC ON)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -45,7 +47,7 @@ include_directories(${OPENGL_INCLUDE_DIR}
 add_executable(${PROJECT_NAME}
 	       ${SOURCE_LIST}  
 	       ${folder_project_include}
-	       ${mixer_HEADERS_MOC}
+               ${mixer_HEADERS_MOC}
 	       ${mixer_FORMS_HEADERS})
 
 target_link_libraries(${PROJECT_NAME} 

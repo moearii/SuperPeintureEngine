@@ -2,20 +2,26 @@
 
 int Utils_kubelka::SAMPLES = 101;
 
-Spectre Utils_kubelka::compute_melange(Pigment * pig1, Pigment * pig2){
+Spectre Utils_kubelka::compute_melange(Pigment * pig1, Pigment * pig2, float concentration){
 
     Spectre melange;
     vector<float> wavelengthsmelange;
 
     for(int i = 0; i < SAMPLES; i++){
-        float km = pig1->getAbsorption().getAmplitude(i) * pig1->getConcentration() + pig2->getAbsorption().getAmplitude(i) * pig2->getConcentration();
-        float sm = pig1->getScattering().getAmplitude(i) * pig1->getConcentration() + pig2->getScattering().getAmplitude(i) * pig2->getConcentration();
+        float km = pig1->getAbsorption().getAmplitude(i) * concentration + pig2->getAbsorption().getAmplitude(i) * (1 - concentration);
+        float sm = pig1->getScattering().getAmplitude(i) * concentration + pig2->getScattering().getAmplitude(i) * (1 - concentration);
+        //cout << "i = " << i << " km = " << km << " sm = " << sm << endl;
         wavelengthsmelange.push_back(km / sm);
     }
+
+    //cout << "concentration pig 1 = " << pig1->getConcentration() << " concentration pig2 = " << pig2->getConcentration() << endl;
+    //cout << "abs pig 1 = " << pig1->getAbsorption().getAmplitude(0) << " abs pig2 = " << pig2->getAbsorption().getAmplitude(0) << endl;
 
     melange.setAmplitudes(wavelengthsmelange);
     melange.setWavelengths(pig1->getAbsorption().getWavelengthList());
 
+    //for(int i = 0; i < SAMPLES; i++)
+        //cout << "melange " << i << " = " << melange.getAmplitude(i) << endl;
     return melange;
 }
 
@@ -34,6 +40,9 @@ Spectre Utils_kubelka::compute_reflectance_melange(Spectre melange){
     reflectance.setAmplitudes(wavelengthsreflectance);
     reflectance.setWavelengths(melange.getWavelengthList());
 
+    //for(int i = 0; i < SAMPLES; i++)
+        //cout << "reflectance " << i << " = " << reflectance.getAmplitude(i) << endl;
+
     return reflectance;
 }
 
@@ -49,6 +58,9 @@ Spectre Utils_kubelka::compute_lumiere_reflechie(Spectre reflectance, Light * in
 
     reflechie.setAmplitudes(wavelengthsreflechie);
     reflechie.setWavelengths(reflectance.getWavelengthList());
+
+    //for(int i = 0; i < SAMPLES; i++)
+        //cout << "reflechie " << i << " = " << reflechie.getAmplitude(i) << endl;
 
     return reflechie;
 }
@@ -127,14 +139,9 @@ glm::vec3 Utils_kubelka::clipping(glm::vec3 rgb){
 
     float x, y, z;
 
-    x = (rgb.x < 0.0f) ? 0.0f : rgb.x;
-    x = (x > 1.0f) ? 1.0f : x;
-
-    y = (rgb.y < 0.0f) ? 0.0f : rgb.y;
-    y = (y > 1.0f) ? 1.0f : y;
-
-    z = (rgb.z < 0.0f) ? 0.0f : rgb.z;
-    z = (z > 1.0f) ? 1.0f : z;
+    x = std::max(0.f, std::min(rgb.x, 1.f));
+    y = std::max(0.f, std::min(rgb.y, 1.f));
+    z = std::max(0.f, std::min(rgb.z, 1.f));
 
     return glm::vec3(x, y, z);
 }
@@ -154,6 +161,7 @@ const glm::mat3 Utils_kubelka::M_D65 = glm::mat3(
 const double Utils_kubelka::CIE_1964_CMFs[303] = {
 
 /*
+ *      http://www.cvrl.org/cmfs.htm
  *          380 nm -> 780 nm avec pas de 4nm
  *      x                   y               z
  *

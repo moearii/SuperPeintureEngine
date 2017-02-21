@@ -5,20 +5,23 @@
 #include <GL/gl.h>
 #include <QApplication>
 
-#include "mixer.h"
+#include "renderingwidget.h"
+#include "mixeur.h"
 
 int main(int argc, char **argv)
 {
     QApplication application(argc, argv);
 
-    QGLFormat glFormat;
-    glFormat.setVersion(4, 3);
-    glFormat.setProfile(QGLFormat::CoreProfile);
-    glFormat.setSampleBuffers(true);
+    //QGLFormat glFormat;
+    //glFormat.setVersion(4, 3);
+    //glFormat.setProfile(QGLFormat::CoreProfile);
+    //glFormat.setSampleBuffers(true);
 
-    RenderingWidget widget(glFormat);
-    Mixer mixer(&widget);
-    mixer.show();
+    //RenderingWidget widget(glFormat);
+    //widget.show();
+
+    Mixeur mixeur;
+    mixeur.show();
 
     return application.exec();
 }
