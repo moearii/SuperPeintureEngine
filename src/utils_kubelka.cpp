@@ -86,7 +86,6 @@ glm::vec3 Utils_kubelka::convertXYZ(Spectre lumiere_reflect, Light * incidente){
     Y = k * Y;
     Z = k * Z;
 
-    cout << "XYZ = " << X << " " << Y << " " << Z << endl;
     return glm::vec3(X, Y, Z);
 }
 
@@ -95,7 +94,6 @@ glm::vec3 Utils_kubelka::convertRGB(glm::vec3 xyz){
 
     glm::vec3 rgb = M_D65 * xyz;
 
-    cout << "rgb = " << rgb.x << " " << rgb.y << " " << rgb.z << endl;
     return glm::vec3(rgb.x, rgb.y, rgb.z);
 }
 

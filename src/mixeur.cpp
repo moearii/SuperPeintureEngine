@@ -9,14 +9,11 @@ Mixeur::Mixeur(QWidget *parent) :
 
     ui->render->initializeGL();                     // Pour que l'initialisation se soit bien executée avant ce qui suit
 
-    ui->render->show();                          // debug
+    ui->render->show();
 
     pigments_labels = ui->render->getPigmentsLabels();
     numeroLabel_pigment_1 = 0;
     numeroLabel_pigment_2 = 0;
-
-//    connect(ui->pigment_1,SIGNAL(clicked()),this,SLOT(on_pigment_1_clicked()));
-//    connect(ui->pigment_2,SIGNAL(clicked()),this,SLOT(on_pigment_2_clicked()));
 }
 
 Mixeur::~Mixeur()
@@ -119,6 +116,7 @@ void Mixeur::update_xyz(std::vector<float> xyz){
     ui->Z->setText(QString(z_text.c_str()));
 }
 
+// Exportateur XML
 void Mixeur::on_exporter_clicked()
 {
     QString directoryName = QFileDialog::getSaveFileName(this, "Enregistrer un fichier pigment");

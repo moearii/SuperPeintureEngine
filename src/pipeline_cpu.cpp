@@ -25,6 +25,4 @@ void Pipeline_CPU::run_full_samples(Pigment * pig1, Pigment * pig2, float concen
     rgb = Utils_kubelka::correctionGamma(rgb, 2.2f);
 
     couleur = Utils_kubelka::clipping(rgb);
-
-    cout << "rgb clip = " << couleur.x << " " << couleur.y << " " << couleur.z << endl;
 }
