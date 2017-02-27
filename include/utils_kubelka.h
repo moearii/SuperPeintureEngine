@@ -17,7 +17,7 @@ class Utils_kubelka{
 
 public:
 
-    static Spectre compute_melange(Pigment * pig1, Pigment * pig2, float concentration);
+    static vector<Spectre> compute_melange(Pigment * pig1, Pigment * pig2, float concentration);
     static Spectre compute_reflectance_melange(Spectre melange);
     static Spectre compute_lumiere_reflechie(Spectre reflectance, Light * incidente);
     static glm::vec3 convertXYZ(Spectre lumiere_reflect, Light * incidente);

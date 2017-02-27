@@ -8,6 +8,7 @@
 
 #include <QtXml/qdom.h>
 #include <QFile>
+#include <QFileInfo>
 #include <QTextStream>
 #include <qtextstream.h>
 
@@ -32,33 +33,30 @@ public:
     QString parseNodeLabel(QDomElement& nodeLabel);
     void parseNodeAmplitudePigment(QDomElement& nodeAmplitude);
     void parseNodeAmplitudeLight(QDomElement& nodeAmplitude);
-    std::vector<int> parseNodeLambda(QDomElement& nodeLambdai);
-    std::vector<float> parseNodeHi(QDomElement& nodeHi);
     float parseNodeCoefK(QDomElement& nodeCoefK);
-    std::vector<float> parseNodeSpectre(QDomElement& nodeSpectre);
 
-    // TODO: export data to xmlfiles
-    bool exportDataToFilePigment(const QString& filename);
+    bool exportDataToFilePigment(const QString& filename, Spectre spectreAbsorption, Spectre spectreDiffusion);
 
     Pigment getPigment(const QString& name);
     Light getLight(const QString& name);
 
-    std::vector<Pigment> getPigmentList();
-    std::vector<Light> getLightList();
+    vector<Pigment> getPigmentList();
+    vector<Light> getLightList();
 
+private:
     QString name;
     // Pigments attributes
-    std::vector<float> absorptionSpectrum;
-    std::vector<float> scatteringSpectrum;
-    std::vector<float> lightSpectrum;
-    std::vector<float> wavelengthList;
+    vector<float> absorptionSpectrum;
+    vector<float> scatteringSpectrum;
+    vector<float> lightSpectrum;
+    vector<float> wavelengthList;
     // Lights attributes
     float coeffK;
-    std::vector<float> hiSamples;
-    std::vector<int> lambdaSamples;
+    vector<float> hiSamples;
+    vector<int> lambdaSamples;
 
-    std::vector<Pigment> pigmentList;
-    std::vector<Light> lightList;
+    vector<Pigment> pigmentList;
+    vector<Light> lightList;
 };
 
 #endif // CONFIGXML_H

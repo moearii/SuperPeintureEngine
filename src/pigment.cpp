@@ -1,13 +1,13 @@
 #include "pigment.h"
 
-Pigment::Pigment(std::string label, Spectre absorption, Spectre scattering)
+Pigment::Pigment(string label, Spectre absorption, Spectre scattering)
 {
     labelPigment = label;
     absorptionSpectrum = Spectre(absorption);
     scatteringSpectrum = Spectre(scattering);
 }
 
-std::string Pigment::getLabel()
+string Pigment::getLabel()
 {
     return labelPigment;
 }
@@ -22,7 +22,7 @@ Spectre Pigment::getScattering()
     return scatteringSpectrum;
 }
 
-void Pigment::setLabel(std::string label)
+void Pigment::setLabel(string label)
 {
     labelPigment = label;
 }
@@ -35,11 +35,4 @@ void Pigment::setAbsorption(Spectre absorption)
 void Pigment::setScattering(Spectre scattering)
 {
     scatteringSpectrum = Spectre(scattering);
-}
-
-void Pigment::printDataPigment()
-{
-    std::cout << "\nNom pigment: " << labelPigment << std::endl;
-    absorptionSpectrum.printDataSpectrum();
-    scatteringSpectrum.printDataSpectrum();
 }

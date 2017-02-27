@@ -15,8 +15,8 @@ void Pipeline_CPU::run_8_samples(Pigment * pig1, Pigment * pig2, float concentra
 
 void Pipeline_CPU::run_full_samples(Pigment * pig1, Pigment * pig2, float concentration, Light * lum, glm::vec3 & couleur, glm::vec3 & xyz){
 
-    Spectre melange = Utils_kubelka::compute_melange(pig1, pig2, concentration);
-    Spectre reflectance = Utils_kubelka::compute_reflectance_melange(melange);
+    vector<Spectre> melange = Utils_kubelka::compute_melange(pig1, pig2, concentration);
+    Spectre reflectance = Utils_kubelka::compute_reflectance_melange(melange.at(0));
     Spectre reflechie = Utils_kubelka::compute_lumiere_reflechie(reflectance, lum);
 
     xyz = Utils_kubelka::convertXYZ(reflechie, lum);

@@ -2,29 +2,39 @@
 
 int Utils_kubelka::SAMPLES = 101;
 
-Spectre Utils_kubelka::compute_melange(Pigment * pig1, Pigment * pig2, float concentration){
+vector<Spectre> Utils_kubelka::compute_melange(Pigment * pig1, Pigment * pig2, float concentration){
 
     Spectre melange;
+    Spectre spectreAbsorptionMelange;
+    Spectre spectreDiffusionMelange;
+    vector<Spectre> spectres;
     vector<float> wavelengthsmelange;
+    vector<float> kmList;
+    vector<float> smList;
 
     for(int i = 0; i < SAMPLES; i++){
         float km = pig1->getAbsorption().getAmplitude(i) * concentration + pig2->getAbsorption().getAmplitude(i) * (1 - concentration);
         float sm = pig1->getScattering().getAmplitude(i) * concentration + pig2->getScattering().getAmplitude(i) * (1 - concentration);
-        //cout << "i = " << i << " km = " << km << " sm = " << sm << endl;
+        kmList.push_back(km);
+        smList.push_back(sm);
         wavelengthsmelange.push_back(km / sm);
     }
 
-    //cout << "concentration pig 1 = " << pig1->getConcentration() << " concentration pig2 = " << pig2->getConcentration() << endl;
-    //cout << "abs pig 1 = " << pig1->getAbsorption().getAmplitude(0) << " abs pig2 = " << pig2->getAbsorption().getAmplitude(0) << endl;
+    spectreAbsorptionMelange.setWavelengths(pig1->absorptionSpectrum.getWavelengthList());
+    spectreAbsorptionMelange.setAmplitudes(kmList);
+
+    spectreDiffusionMelange.setWavelengths(pig1->absorptionSpectrum.getWavelengthList());
+    spectreDiffusionMelange.setAmplitudes(smList);
 
     melange.setAmplitudes(wavelengthsmelange);
     melange.setWavelengths(pig1->getAbsorption().getWavelengthList());
 
-    //for(int i = 0; i < SAMPLES; i++)
-        //cout << "melange " << i << " = " << melange.getAmplitude(i) << endl;
-    return melange;
-}
+    spectres.push_back(melange);
+    spectres.push_back(spectreAbsorptionMelange);
+    spectres.push_back(spectreDiffusionMelange);
 
+    return spectres;
+}
 
 Spectre Utils_kubelka::compute_reflectance_melange(Spectre melange){
 
@@ -39,9 +49,6 @@ Spectre Utils_kubelka::compute_reflectance_melange(Spectre melange){
 
     reflectance.setAmplitudes(wavelengthsreflectance);
     reflectance.setWavelengths(melange.getWavelengthList());
-
-    //for(int i = 0; i < SAMPLES; i++)
-        //cout << "reflectance " << i << " = " << reflectance.getAmplitude(i) << endl;
 
     return reflectance;
 }
@@ -58,9 +65,6 @@ Spectre Utils_kubelka::compute_lumiere_reflechie(Spectre reflectance, Light * in
 
     reflechie.setAmplitudes(wavelengthsreflechie);
     reflechie.setWavelengths(reflectance.getWavelengthList());
-
-    //for(int i = 0; i < SAMPLES; i++)
-        //cout << "reflechie " << i << " = " << reflechie.getAmplitude(i) << endl;
 
     return reflechie;
 }

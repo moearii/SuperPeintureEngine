@@ -15,7 +15,8 @@ Mixeur::Mixeur(QWidget *parent) :
     numeroLabel_pigment_1 = 0;
     numeroLabel_pigment_2 = 0;
 
-    //this->setStyleSheet("background-color:black");
+//    connect(ui->pigment_1,SIGNAL(clicked()),this,SLOT(on_pigment_1_clicked()));
+//    connect(ui->pigment_2,SIGNAL(clicked()),this,SLOT(on_pigment_2_clicked()));
 }
 
 Mixeur::~Mixeur()
@@ -23,13 +24,12 @@ Mixeur::~Mixeur()
     delete ui;
 }
 
-void Mixeur::on_pigment_1_clicked(){
-
+void Mixeur::on_pigment_1_clicked()
+{
     numeroLabel_pigment_1 = (numeroLabel_pigment_1 + 1) % pigments_labels.size();
     QString current_label = pigments_labels[numeroLabel_pigment_1];
 
     ui->pigment_1->setText(current_label);
-
 
     ui->render->setLabel_pigment1(current_label);
     ui->render->setLabel_pigment2(current_label);
@@ -47,7 +47,6 @@ void Mixeur::on_pigment_1_clicked(){
 
     update_rgb(couleur);
     update_xyz(ui->render->getXYZ());
-
 }
 
 void Mixeur::on_pigment_2_clicked(){
@@ -56,7 +55,6 @@ void Mixeur::on_pigment_2_clicked(){
     QString current_label = pigments_labels[numeroLabel_pigment_2];
 
     ui->pigment_2->setText(current_label);
-
 
     ui->render->setLabel_pigment2(current_label);
     ui->render->setLabel_pigment1(current_label);
@@ -77,7 +75,7 @@ void Mixeur::on_pigment_2_clicked(){
 }
 
 void Mixeur::on_cpu_gpu_clicked(){
-    // coming soon;
+    // TODO
 }
 
 void Mixeur::on_slider_valueChanged(){
@@ -87,16 +85,7 @@ void Mixeur::on_slider_valueChanged(){
     ui->render->setSlider_concentration(1.f - (ui->slider->value()) / 100.f);                   // slider value 0 -> 99
 
     ui->render->repaint();
-/*
-    QColor couleur = render->getResultat();
-    QPalette pal = ui->pigment_3->palette();
-    pal.setColor(ui->pigment_3->backgroundRole(), couleur);
-    pal.setColor(ui->pigment_3->foregroundRole(), couleur);
 
-    ui->pigment_3->setAutoFillBackground(true);
-    ui->pigment_3->setPalette(pal);
-    ui->pigment_3->update();
-*/
     stringstream pourcentage;
     pourcentage << ui->slider->value() << "%";
     std::string pourcent(pourcentage.str());
@@ -106,9 +95,7 @@ void Mixeur::on_slider_valueChanged(){
 
     update_rgb(couleur);
     update_xyz(ui->render->getXYZ());
-
 }
-
 
 void Mixeur::update_rgb(QColor & rgb){
     stringstream rgbText;
@@ -131,3 +118,16 @@ void Mixeur::update_xyz(std::vector<float> xyz){
     ui->Y->setText(QString(y_text.c_str()));
     ui->Z->setText(QString(z_text.c_str()));
 }
+
+void Mixeur::on_exporter_clicked()
+{
+    QString directoryName = QFileDialog::getSaveFileName(this, "Enregistrer un fichier pigment");
+
+    Pigment * pig1 = ui->render->getPigmentfromLabel(pigments_labels[numeroLabel_pigment_1]);
+    Pigment * pig2 = ui->render->getPigmentfromLabel(pigments_labels[numeroLabel_pigment_2]);
+    float concentration = ui->render->getSlider_concentration();
+    vector<Spectre> spectres = Utils_kubelka::compute_melange(pig1,pig2,concentration);
+
+    ui->render->parseur->exportDataToFilePigment(directoryName,spectres.at(1),spectres.at(2));
+}
+

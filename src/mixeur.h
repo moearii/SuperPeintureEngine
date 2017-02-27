@@ -2,10 +2,10 @@
 #define MIXEUR_H
 
 #include <QMainWindow>
+#include <QFileDialog>
 #include "renderingwidget.h"
 #include <vector>
 #include <sstream>
-#include <QMouseEvent>
 
 namespace Ui {
 class Mixeur;
@@ -19,12 +19,15 @@ public:
     explicit Mixeur(QWidget *parent = 0);
     ~Mixeur();
     
+
 private slots:
     void on_pigment_1_clicked();
     void on_pigment_2_clicked();
     void on_cpu_gpu_clicked();
 
     void on_slider_valueChanged();
+
+    void on_exporter_clicked();
 
 private:
 

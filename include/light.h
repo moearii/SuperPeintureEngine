@@ -12,18 +12,14 @@ using namespace std;
 class Light
 {
 public:
-    Light(std::string label, float norm, Spectre light);
+    Light(string label, float norm, Spectre light);
 
     Spectre getSpectre();
     float getK();
-    std::string getLabel();
-
-    //static Light getLightfromList(vector<Light> list, const QString& name);
-
-    void printDataLight();
+    string getLabel();
 
 private:
-    std::string labelLight;
+    string labelLight;
     Spectre lightSpectrum;
     float k;
 };

@@ -229,7 +229,7 @@
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <property name="spacing">
-           <number>-1</number>
+           <number>6</number>
           </property>
           <item>
            <spacer name="horizontalSpacer_4">
@@ -366,9 +366,6 @@
            </widget>
           </item>
          </layout>
-         <zorder>horizontalLayoutWidget</zorder>
-         <zorder>horizontalLayoutWidget</zorder>
-         <zorder>render</zorder>
         </widget>
        </item>
        <item>
@@ -438,7 +435,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
   </widget>
@@ -461,12 +458,12 @@
    <slot>repaint()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>362</x>
-     <y>74</y>
+     <x>310</x>
+     <y>88</y>
     </hint>
     <hint type="destinationlabel">
-     <x>418</x>
-     <y>82</y>
+     <x>310</x>
+     <y>88</y>
     </hint>
    </hints>
   </connection>

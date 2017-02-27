@@ -1,0 +1,407 @@
+<pigment>
+	<label>vi</label>
+	<amplitude wavelength = "380">
+		<absorption>0.280074</absorption>
+		<diffusion>0.040458</diffusion>
+	</amplitude>
+	<amplitude wavelength = "384">
+		<absorption>0.272866</absorption>
+		<diffusion>0.037009</diffusion>
+	</amplitude>
+	<amplitude wavelength = "388">
+		<absorption>0.281975</absorption>
+		<diffusion>0.034107</diffusion>
+	</amplitude>
+	<amplitude wavelength = "392">
+		<absorption>0.310912</absorption>
+		<diffusion>0.034159</diffusion>
+	</amplitude>
+	<amplitude wavelength = "396">
+		<absorption>0.348341</absorption>
+		<diffusion>0.033741</diffusion>
+	</amplitude>
+	<amplitude wavelength = "400">
+		<absorption>0.384835</absorption>
+		<diffusion>0.032604</diffusion>
+	</amplitude>
+	<amplitude wavelength = "404">
+		<absorption>0.409591</absorption>
+		<diffusion>0.031409</diffusion>
+	</amplitude>
+	<amplitude wavelength = "408">
+		<absorption>0.457421</absorption>
+		<diffusion>0.031172</diffusion>
+	</amplitude>
+	<amplitude wavelength = "412">
+		<absorption>0.495024</absorption>
+		<diffusion>0.030860</diffusion>
+	</amplitude>
+	<amplitude wavelength = "416">
+		<absorption>0.537519</absorption>
+		<diffusion>0.030945</diffusion>
+	</amplitude>
+	<amplitude wavelength = "420">
+		<absorption>0.572717</absorption>
+		<diffusion>0.030512</diffusion>
+	</amplitude>
+	<amplitude wavelength = "424">
+		<absorption>0.594887</absorption>
+		<diffusion>0.030258</diffusion>
+	</amplitude>
+	<amplitude wavelength = "428">
+		<absorption>0.615148</absorption>
+		<diffusion>0.030210</diffusion>
+	</amplitude>
+	<amplitude wavelength = "432">
+		<absorption>0.608252</absorption>
+		<diffusion>0.029592</diffusion>
+	</amplitude>
+	<amplitude wavelength = "436">
+		<absorption>0.607293</absorption>
+		<diffusion>0.030076</diffusion>
+	</amplitude>
+	<amplitude wavelength = "440">
+		<absorption>0.561364</absorption>
+		<diffusion>0.029170</diffusion>
+	</amplitude>
+	<amplitude wavelength = "444">
+		<absorption>0.535385</absorption>
+		<diffusion>0.029435</diffusion>
+	</amplitude>
+	<amplitude wavelength = "448">
+		<absorption>0.497540</absorption>
+		<diffusion>0.029423</diffusion>
+	</amplitude>
+	<amplitude wavelength = "452">
+		<absorption>0.460663</absorption>
+		<diffusion>0.029736</diffusion>
+	</amplitude>
+	<amplitude wavelength = "456">
+		<absorption>0.419727</absorption>
+		<diffusion>0.029227</diffusion>
+	</amplitude>
+	<amplitude wavelength = "460">
+		<absorption>0.383134</absorption>
+		<diffusion>0.029225</diffusion>
+	</amplitude>
+	<amplitude wavelength = "464">
+		<absorption>0.346797</absorption>
+		<diffusion>0.028881</diffusion>
+	</amplitude>
+	<amplitude wavelength = "468">
+		<absorption>0.318937</absorption>
+		<diffusion>0.029150</diffusion>
+	</amplitude>
+	<amplitude wavelength = "472">
+		<absorption>0.288162</absorption>
+		<diffusion>0.029530</diffusion>
+	</amplitude>
+	<amplitude wavelength = "476">
+		<absorption>0.264835</absorption>
+		<diffusion>0.030268</diffusion>
+	</amplitude>
+	<amplitude wavelength = "480">
+		<absorption>0.243011</absorption>
+		<diffusion>0.031340</diffusion>
+	</amplitude>
+	<amplitude wavelength = "484">
+		<absorption>0.220190</absorption>
+		<diffusion>0.032285</diffusion>
+	</amplitude>
+	<amplitude wavelength = "488">
+		<absorption>0.198435</absorption>
+		<diffusion>0.032498</diffusion>
+	</amplitude>
+	<amplitude wavelength = "492">
+		<absorption>0.183491</absorption>
+		<diffusion>0.033113</diffusion>
+	</amplitude>
+	<amplitude wavelength = "496">
+		<absorption>0.172579</absorption>
+		<diffusion>0.033589</diffusion>
+	</amplitude>
+	<amplitude wavelength = "500">
+		<absorption>0.168504</absorption>
+		<diffusion>0.034313</diffusion>
+	</amplitude>
+	<amplitude wavelength = "504">
+		<absorption>0.169836</absorption>
+		<diffusion>0.035415</diffusion>
+	</amplitude>
+	<amplitude wavelength = "508">
+		<absorption>0.175399</absorption>
+		<diffusion>0.036632</diffusion>
+	</amplitude>
+	<amplitude wavelength = "512">
+		<absorption>0.185533</absorption>
+		<diffusion>0.037873</diffusion>
+	</amplitude>
+	<amplitude wavelength = "516">
+		<absorption>0.205581</absorption>
+		<diffusion>0.039450</diffusion>
+	</amplitude>
+	<amplitude wavelength = "520">
+		<absorption>0.232409</absorption>
+		<diffusion>0.040789</diffusion>
+	</amplitude>
+	<amplitude wavelength = "524">
+		<absorption>0.269285</absorption>
+		<diffusion>0.042435</diffusion>
+	</amplitude>
+	<amplitude wavelength = "528">
+		<absorption>0.327600</absorption>
+		<diffusion>0.044698</diffusion>
+	</amplitude>
+	<amplitude wavelength = "532">
+		<absorption>0.388885</absorption>
+		<diffusion>0.046132</diffusion>
+	</amplitude>
+	<amplitude wavelength = "536">
+		<absorption>0.469448</absorption>
+		<diffusion>0.048276</diffusion>
+	</amplitude>
+	<amplitude wavelength = "540">
+		<absorption>0.596159</absorption>
+		<diffusion>0.051611</diffusion>
+	</amplitude>
+	<amplitude wavelength = "544">
+		<absorption>0.762854</absorption>
+		<diffusion>0.055632</diffusion>
+	</amplitude>
+	<amplitude wavelength = "548">
+		<absorption>0.979285</absorption>
+		<diffusion>0.060188</diffusion>
+	</amplitude>
+	<amplitude wavelength = "552">
+		<absorption>1.291155</absorption>
+		<diffusion>0.066187</diffusion>
+	</amplitude>
+	<amplitude wavelength = "556">
+		<absorption>1.658957</absorption>
+		<diffusion>0.072164</diffusion>
+	</amplitude>
+	<amplitude wavelength = "560">
+		<absorption>2.059050</absorption>
+		<diffusion>0.077448</diffusion>
+	</amplitude>
+	<amplitude wavelength = "564">
+		<absorption>2.521869</absorption>
+		<diffusion>0.082266</diffusion>
+	</amplitude>
+	<amplitude wavelength = "568">
+		<absorption>3.014031</absorption>
+		<diffusion>0.085938</diffusion>
+	</amplitude>
+	<amplitude wavelength = "572">
+		<absorption>3.410406</absorption>
+		<diffusion>0.087455</diffusion>
+	</amplitude>
+	<amplitude wavelength = "576">
+		<absorption>3.737544</absorption>
+		<diffusion>0.087821</diffusion>
+	</amplitude>
+	<amplitude wavelength = "580">
+		<absorption>4.191133</absorption>
+		<diffusion>0.088519</diffusion>
+	</amplitude>
+	<amplitude wavelength = "584">
+		<absorption>4.536957</absorption>
+		<diffusion>0.088970</diffusion>
+	</amplitude>
+	<amplitude wavelength = "588">
+		<absorption>4.838037</absorption>
+		<diffusion>0.088350</diffusion>
+	</amplitude>
+	<amplitude wavelength = "592">
+		<absorption>5.108749</absorption>
+		<diffusion>0.085813</diffusion>
+	</amplitude>
+	<amplitude wavelength = "596">
+		<absorption>5.356741</absorption>
+		<diffusion>0.085512</diffusion>
+	</amplitude>
+	<amplitude wavelength = "600">
+		<absorption>5.669450</absorption>
+		<diffusion>0.087455</diffusion>
+	</amplitude>
+	<amplitude wavelength = "604">
+		<absorption>6.023428</absorption>
+		<diffusion>0.090134</diffusion>
+	</amplitude>
+	<amplitude wavelength = "608">
+		<absorption>6.310247</absorption>
+		<diffusion>0.090850</diffusion>
+	</amplitude>
+	<amplitude wavelength = "612">
+		<absorption>6.695234</absorption>
+		<diffusion>0.093930</diffusion>
+	</amplitude>
+	<amplitude wavelength = "616">
+		<absorption>7.043870</absorption>
+		<diffusion>0.096430</diffusion>
+	</amplitude>
+	<amplitude wavelength = "620">
+		<absorption>7.460626</absorption>
+		<diffusion>0.099960</diffusion>
+	</amplitude>
+	<amplitude wavelength = "624">
+		<absorption>7.835414</absorption>
+		<diffusion>0.105004</diffusion>
+	</amplitude>
+	<amplitude wavelength = "628">
+		<absorption>8.182274</absorption>
+		<diffusion>0.110776</diffusion>
+	</amplitude>
+	<amplitude wavelength = "632">
+		<absorption>8.579642</absorption>
+		<diffusion>0.116900</diffusion>
+	</amplitude>
+	<amplitude wavelength = "636">
+		<absorption>9.027080</absorption>
+		<diffusion>0.126970</diffusion>
+	</amplitude>
+	<amplitude wavelength = "640">
+		<absorption>9.406523</absorption>
+		<diffusion>0.134899</diffusion>
+	</amplitude>
+	<amplitude wavelength = "644">
+		<absorption>9.863910</absorption>
+		<diffusion>0.146083</diffusion>
+	</amplitude>
+	<amplitude wavelength = "648">
+		<absorption>10.226718</absorption>
+		<diffusion>0.154063</diffusion>
+	</amplitude>
+	<amplitude wavelength = "652">
+		<absorption>10.827587</absorption>
+		<diffusion>0.168652</diffusion>
+	</amplitude>
+	<amplitude wavelength = "656">
+		<absorption>11.387954</absorption>
+		<diffusion>0.181819</diffusion>
+	</amplitude>
+	<amplitude wavelength = "660">
+		<absorption>11.826672</absorption>
+		<diffusion>0.192170</diffusion>
+	</amplitude>
+	<amplitude wavelength = "664">
+		<absorption>12.143281</absorption>
+		<diffusion>0.208990</diffusion>
+	</amplitude>
+	<amplitude wavelength = "668">
+		<absorption>12.407316</absorption>
+		<diffusion>0.217760</diffusion>
+	</amplitude>
+	<amplitude wavelength = "672">
+		<absorption>12.644845</absorption>
+		<diffusion>0.232264</diffusion>
+	</amplitude>
+	<amplitude wavelength = "676">
+		<absorption>13.031040</absorption>
+		<diffusion>0.246624</diffusion>
+	</amplitude>
+	<amplitude wavelength = "680">
+		<absorption>14.067008</absorption>
+		<diffusion>0.269614</diffusion>
+	</amplitude>
+	<amplitude wavelength = "684">
+		<absorption>14.654753</absorption>
+		<diffusion>0.291750</diffusion>
+	</amplitude>
+	<amplitude wavelength = "688">
+		<absorption>15.571990</absorption>
+		<diffusion>0.314772</diffusion>
+	</amplitude>
+	<amplitude wavelength = "692">
+		<absorption>16.152182</absorption>
+		<diffusion>0.327918</diffusion>
+	</amplitude>
+	<amplitude wavelength = "696">
+		<absorption>16.016430</absorption>
+		<diffusion>0.341651</diffusion>
+	</amplitude>
+	<amplitude wavelength = "700">
+		<absorption>16.736581</absorption>
+		<diffusion>0.355227</diffusion>
+	</amplitude>
+	<amplitude wavelength = "704">
+		<absorption>17.090694</absorption>
+		<diffusion>0.370159</diffusion>
+	</amplitude>
+	<amplitude wavelength = "708">
+		<absorption>14.809355</absorption>
+		<diffusion>0.348131</diffusion>
+	</amplitude>
+	<amplitude wavelength = "712">
+		<absorption>13.541787</absorption>
+		<diffusion>0.346802</diffusion>
+	</amplitude>
+	<amplitude wavelength = "716">
+		<absorption>11.430720</absorption>
+		<diffusion>0.318779</diffusion>
+	</amplitude>
+	<amplitude wavelength = "720">
+		<absorption>10.263436</absorption>
+		<diffusion>0.312197</diffusion>
+	</amplitude>
+	<amplitude wavelength = "724">
+		<absorption>9.160630</absorption>
+		<diffusion>0.313297</diffusion>
+	</amplitude>
+	<amplitude wavelength = "728">
+		<absorption>7.527183</absorption>
+		<diffusion>0.294163</diffusion>
+	</amplitude>
+	<amplitude wavelength = "732">
+		<absorption>6.387343</absorption>
+		<diffusion>0.286873</diffusion>
+	</amplitude>
+	<amplitude wavelength = "736">
+		<absorption>5.320149</absorption>
+		<diffusion>0.277292</diffusion>
+	</amplitude>
+	<amplitude wavelength = "740">
+		<absorption>4.431101</absorption>
+		<diffusion>0.271179</diffusion>
+	</amplitude>
+	<amplitude wavelength = "744">
+		<absorption>3.829974</absorption>
+		<diffusion>0.274969</diffusion>
+	</amplitude>
+	<amplitude wavelength = "748">
+		<absorption>3.374696</absorption>
+		<diffusion>0.276442</diffusion>
+	</amplitude>
+	<amplitude wavelength = "752">
+		<absorption>2.992317</absorption>
+		<diffusion>0.275397</diffusion>
+	</amplitude>
+	<amplitude wavelength = "756">
+		<absorption>2.772491</absorption>
+		<diffusion>0.285595</diffusion>
+	</amplitude>
+	<amplitude wavelength = "760">
+		<absorption>2.422634</absorption>
+		<diffusion>0.276434</diffusion>
+	</amplitude>
+	<amplitude wavelength = "764">
+		<absorption>2.283291</absorption>
+		<diffusion>0.283508</diffusion>
+	</amplitude>
+	<amplitude wavelength = "768">
+		<absorption>2.116734</absorption>
+		<diffusion>0.281516</diffusion>
+	</amplitude>
+	<amplitude wavelength = "772">
+		<absorption>1.873761</absorption>
+		<diffusion>0.263937</diffusion>
+	</amplitude>
+	<amplitude wavelength = "776">
+		<absorption>1.724061</absorption>
+		<diffusion>0.261788</diffusion>
+	</amplitude>
+	<amplitude wavelength = "780">
+		<absorption>1.580949</absorption>
+		<diffusion>0.261750</diffusion>
+	</amplitude>
+</pigment>

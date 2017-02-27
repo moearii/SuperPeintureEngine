@@ -40,17 +40,3 @@ float Spectre::getWavelength(int i){
 float Spectre::getAmplitude(int i){
     return amplitudeList[i];
 }
-
-void Spectre::printDataSpectrum()
-{
-    std::cout << "Wavelength: " << wavelengthList.size() <<  " valeurs" << std::endl;
-    for(std::vector<float>::iterator it = wavelengthList.begin(); it != wavelengthList.end(); ++it)
-    {
-        std::cout << (*it) << std::endl;
-    }
-    std::cout << "Amplitude: " << amplitudeList.size() <<  " valeurs" << std::endl;
-    for(std::vector<float>::iterator it = amplitudeList.begin(); it != amplitudeList.end(); ++it)
-    {
-        std::cout << (*it) << std::endl;
-    }
-}

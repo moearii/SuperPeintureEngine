@@ -4,28 +4,26 @@
 #include <iostream>
 #include <vector>
 
+using namespace  std;
+
 class Spectre
 {
 public:
     Spectre();
-    Spectre(std::vector<float> wavelength, std::vector<float> amplitude);
+    Spectre(vector<float> wavelength, vector<float> amplitude);
     Spectre(const Spectre&);
 
-    void setWavelengths(std::vector<float> wavelist);
-    void setAmplitudes(std::vector<float> amplist);
-
-    std::vector<float> getWavelengthList();
-    std::vector<float> getAmplitudeList();
-
+    vector<float> getWavelengthList();
+    vector<float> getAmplitudeList();
     float getWavelength(int i);
     float getAmplitude(int i);
 
-    void printDataSpectrum();
+    void setWavelengths(vector<float> wavelist);
+    void setAmplitudes(vector<float> amplist);
 
 private:
-
-    std::vector<float> wavelengthList;
-    std::vector<float> amplitudeList;
+    vector<float> wavelengthList;
+    vector<float> amplitudeList;
 };
 
 #endif // SPECTRE_H

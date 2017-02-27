@@ -60,12 +60,10 @@ bool ConfigXML::loadDataFromFile(const QString &filename)
 
     if(type.toStdString() == "pigment")
     {
-        //std::cout << "--> Chargement fichier pigment... " << std::endl;
         parsePigment(root);
     }
     else if(type.toStdString() == "lumiere")
     {
-        //std::cout << "--> Chargement fichier lumiere..." << std::endl;
         parseLight(root);
     }
     return true;
@@ -106,39 +104,16 @@ void ConfigXML::parsePigment(QDomElement &root)
  *
  * <light>
  * <label></label>
- * <amplitude wavelength="">>/amplitude>
- * </light>
- *
- * */
-
-/* The light file must have the following structure:
- *
- * <light>
- * <label></label>
- * <lambdai>
- *      <sample></sample>
- *      <sample></sample>
- *      <sample></sample>
- * </lambdai>
- * <hi>
- *      <sample></sample>
- *      <sample></sample>
- *      <sample></sample>
- * </hi>
- * <coef_K></coef_K>
- * <spectre>
- *      <amplitude></amplitude>
- *      <amplitude></amplitude>
- *      <amplitude></amplitude>
- * </spectre>
+ * <k></k>
+ * <amplitude wavelength="">/amplitude>
  * </light>
  *
  * Label: QString
- * Lambdai: liste de sample en Int
- * Hi: liste de sample en Float
  * CoefK: Float
- * Spectre: liste d'amplitude en Float
+ * Wavelength: QString convertie en Float
+ * Amplitude: Float
  * */
+
 void ConfigXML::parseLight(QDomElement &root)
 {
     QDomElement label = root.firstChildElement("label");
@@ -149,16 +124,6 @@ void ConfigXML::parseLight(QDomElement &root)
 
     QDomElement coeff = root.firstChildElement("k");
     parseNodeCoefK(coeff);
-
-    /** 1ere version format fichier lumiere
-    QDomElement lambdai = root.firstChildElement("lambda_i");
-    parseNodeLambda(lambdai);
-
-    QDomElement hi = root.firstChildElement("hi");
-    parseNodeHi(hi);
-
-    QDomElement spectre = root.firstChildElement("spectre");
-    parseNodeSpectre(spectre); */
 
     lightList.push_back(Light(name.toStdString(),coeffK,Spectre(wavelengthList,lightSpectrum)));
 
@@ -233,128 +198,6 @@ float ConfigXML::parseNodeCoefK(QDomElement &nodeCoefK)
     return coeffK;
 }
 
-std::vector<int> ConfigXML::parseNodeLambda(QDomElement &nodeLambdai)
-{
-    // Check if the child tage name is lambda_i
-    if(nodeLambdai.tagName() == "lambda_i")
-    {
-        // Get the first child of the component
-        QDomElement child = nodeLambdai.firstChild().toElement();
-
-        int sample;
-        // Read each child of the component node
-        while(!child.isNull())
-        {
-            // Read name and value
-            if(child.tagName() == "sample") sample = child.firstChild().toText().data().toInt();
-            // Next child
-            child = child.nextSibling().toElement();
-            lambdaSamples.push_back(sample);
-        }
-    }
-    nodeLambdai = nodeLambdai.nextSibling().toElement();
-
-    return lambdaSamples;
-}
-
-std::vector<float> ConfigXML::parseNodeHi(QDomElement &nodeHi)
-{
-    // Check if the child tage name is hi
-    if(nodeHi.tagName() == "hi")
-    {
-        // Get the first child of the component
-        QDomElement child = nodeHi.firstChild().toElement();
-
-        int sample;
-        // Read each child of the component node
-        while(!child.isNull())
-        {
-            // Read name and value
-            if(child.tagName() == "sample") sample = child.firstChild().toText().data().toFloat();
-            // Next child
-            child = child.nextSibling().toElement();
-            hiSamples.push_back(sample);
-        }
-    }
-    nodeHi = nodeHi.nextSibling().toElement();
-
-    return hiSamples;
-}
-
-std::vector<float> ConfigXML::parseNodeSpectre(QDomElement &nodeSpectre)
-{
-    // Check if the child tage name is spectre
-    if(nodeSpectre.tagName() == "spectre")
-    {
-        // Get the first child of the component
-        QDomElement child = nodeSpectre.firstChild().toElement();
-
-        float amplitude;
-        // Read each child of the component node
-        while(!child.isNull())
-        {
-            // Read name and value
-            if(child.tagName() == "amplitude") amplitude = child.firstChild().toText().data().toFloat();
-            // Next child
-            child = child.nextSibling().toElement();
-            lightSpectrum.push_back(amplitude);
-        }
-    }
-    nodeSpectre = nodeSpectre.nextSibling().toElement();
-
-    return lightSpectrum;
-}
-
-bool ConfigXML::exportDataToFilePigment(const QString& filename)
-{
-    QDomDocument document;
-
-    // Create the root element
-    QDomElement root = document.createElement("pigment");
-
-    // Adding the root element to the document
-    document.appendChild(root);
-
-    // Adding more elements
-    QDomElement label = document.createElement("label");
-    label.appendChild(document.createTextNode(name));
-    root.appendChild(label);
-
-    for(int i=0; i<wavelengthList.size(); ++i)
-    {
-        QDomElement amplitude = document.createElement("amplitude");
-        amplitude.setAttribute("wavelength",wavelengthList.at(i));
-
-        QDomElement absorption = document.createElement("absorption");
-        std::string valueK = to_string(absorptionSpectrum.at(i));
-        absorption.appendChild(document.createTextNode(QString::fromStdString(valueK)));
-
-        QDomElement scattering = document.createElement("diffusion");
-        std::string valueS = to_string(scatteringSpectrum.at(i));
-        scattering.appendChild(document.createTextNode(QString::fromStdString(valueS)));
-
-        root.appendChild(amplitude);
-        amplitude.appendChild(absorption);
-        amplitude.appendChild(scattering);
-    }
-    // Writing to a file
-    QFile file(filename);
-    if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
-    {
-        qDebug("Error while writing file");
-        return false;
-    }
-    else
-    {
-        QTextStream stream(&file);
-        stream << document.toString();
-        file.close();
-        qDebug("Writing is done");
-    }
-    return true;
-}
-
-
 Pigment ConfigXML::getPigment(const QString& name)
 {
     int i=0;
@@ -363,7 +206,6 @@ Pigment ConfigXML::getPigment(const QString& name)
 
     return pigmentList.at(i);
 }
-
 
 Light ConfigXML::getLight(const QString& name)
 {
@@ -380,4 +222,56 @@ std::vector<Pigment> ConfigXML::getPigmentList(){
 
 std::vector<Light> ConfigXML::getLightList(){
     return lightList;
+}
+
+bool ConfigXML::exportDataToFilePigment(const QString& directory, Spectre spectreAbsorption, Spectre spectreDiffusion)
+{
+    QFileInfo fileInfo(directory);
+    QString filename = fileInfo.fileName();
+    QDomDocument document;
+
+    // Create the root element
+    QDomElement root = document.createElement("pigment");
+
+    // Adding the root element to the document
+    document.appendChild(root);
+
+    // Adding more elements
+    QDomElement label = document.createElement("label");
+    QString nameXML = filename.mid(0,filename.size()-4);
+    label.appendChild(document.createTextNode(nameXML));
+    root.appendChild(label);
+
+    for(int i=0; i<spectreAbsorption.getWavelengthList().size(); ++i)
+    {
+        QDomElement amplitude = document.createElement("amplitude");
+        amplitude.setAttribute("wavelength",spectreAbsorption.getWavelengthList().at(i));
+
+        QDomElement absorption = document.createElement("absorption");
+        std::string valueK = to_string(spectreAbsorption.getAmplitude(i));
+        absorption.appendChild(document.createTextNode(QString::fromStdString(valueK)));
+
+        QDomElement scattering = document.createElement("diffusion");
+        std::string valueS = to_string(spectreDiffusion.getAmplitude(i));
+        scattering.appendChild(document.createTextNode(QString::fromStdString(valueS)));
+
+        root.appendChild(amplitude);
+        amplitude.appendChild(absorption);
+        amplitude.appendChild(scattering);
+    }
+    // Writing to a file
+    QFile file(directory);
+    if(!file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        qDebug("Error while writing file");
+        return false;
+    }
+    else
+    {
+        QTextStream stream(&file);
+        stream << document.toString();
+        file.close();
+        qDebug("Writing is done");
+    }
+    return true;
 }
